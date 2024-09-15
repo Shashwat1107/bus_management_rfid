@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'add_bus' %}" class="btn btn-primary mt-3">Add Bus</a>
+<h1>Buses List</h1>
+<ul>
+  {% for bus in buses %}
+    <li>
+      <a href="{% url 'bus_detail' bus.id %}">{{ bus.number }} - {{ bus.driver_name }}</a>
+    </li>
+  {% endfor %}
+</ul>
+{% endblock %}

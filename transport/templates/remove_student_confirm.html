@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Remove Student from Bus {{ bus.number }}</h1>
+<p>Are you sure you want to remove student {{ student.register_number }} from bus {{ bus.number }}?</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Confirm Removal</button>
+    <a href="{% url 'bus_detail' bus.id %}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}

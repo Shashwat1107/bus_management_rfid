@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>Bus {{ bus.number }}</h1>
+    <p>Driver: {{ bus.driver_name }} ({{ bus.driver_phone }})</p>
+    <p>Start Point: {{ bus.start_point }}</p>
+    <p>End Point: {{ bus.end_point }}</p>
+    <p>Via: {{ bus.via_points }}</p>
+    <div class="mb-3">
+        <h2>Actions</h2>
+        <a href="{% url 'update_bus' bus.id %}" class="btn btn-warning">Update Bus Info</a>
+        <a href="{% url 'add_student' bus.id %}" class="btn btn-primary">Add Student</a>
+        <a href="{% url 'delete_bus' bus.id %}" class="btn btn-danger">Delete Bus</a>
+    </div>
+    <h2>Students:</h2>
+    <ul>
+        {% if students %}
+            {% for student in students %}
+                <li>
+                    {{ student.register_number }}
+                    <a href="{% url 'remove_student' bus.id student.id %}"  lass="btn btn-danger btn-sm">Remove</a>
+                </li>
+            {% endfor %}
+        {% else %}
+            <p>No students assigned to this bus yet.</p>
+        {% endif %}
+    </ul>
+    
+    <h1> </h1>
+    <h1> </h1>
+    <div class="mb-3">
+        <a href="{% url 'bus_list' %}" class="btn btn-danger">Back to Bus List</a>
+    </div>
+</div>
+{% endblock %}

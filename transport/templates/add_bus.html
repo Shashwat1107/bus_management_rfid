@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Bus</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <h1 class="display-4">Add a New Bus</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success">Add Bus</button>
+    </form>
+    <a href="{% url 'bus_list' %}" class="btn btn-secondary">Back to Bus List</a>
+</body>
+</html>
