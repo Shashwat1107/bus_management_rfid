@@ -1,6 +1,7 @@
-##BUS MANAGEMENT RFID
+BUS MANAGEMENT RFID
+---
+## Steps to run the website server:
 
-Steps to run the website server:
       1. First Download "django" module.
       2. Open the repo folder in the terminal. check if the college_transport folder is opened. If not type "cd college_transport"
       3. Now type "python manage.py runserver"
